@@ -19,6 +19,11 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+  .factory('_', ['$window',
+    function($window) {
+      return $window._;
+    }
+  ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
