@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap'
   ])
   .factory('_', ['$window',
     function($window) {

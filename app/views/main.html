@@ -1,19 +1,19 @@
-<div>
-  <div  ng-repeat="docType in docTypes">
-    <h3>
-      {{docType}}
-    </h3>
-    <table class="table">
-      <tr>
-        <th ng-repeat="attrName in docTypeAttrs[docType]">
-          {{attrName}}
-        </th>
-      </tr>
-      <tr ng-repeat="doc in docsByType[docType]">
-        <td ng-repeat="attrName in docTypeAttrs[docType]">
-          {{doc[attrName]}}
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
+<tabset class="clearfix" justified="true">
+  <tab heading="{{docType}}" ng-repeat="docType in docTypes">
+    <div>
+      <h3>{{docType}}</h3>
+      <table class="table">
+        <tr>
+          <th ng-repeat="attrName in docTypeAttrs[docType]">
+            {{attrName}}
+          </th>
+        </tr>
+        <tr ng-repeat="doc in docsByType[docType]">
+          <td ng-repeat="attrName in docTypeAttrs[docType]">
+            {{doc[attrName]}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </tab>
+</tabset>
