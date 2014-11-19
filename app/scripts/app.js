@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angular-loading-bar'
   ])
   .factory('_', ['$window',
     function($window) {

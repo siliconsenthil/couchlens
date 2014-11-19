@@ -5,3 +5,5 @@ dist
 bower_components
 .idea
 .idea/workspace.xml
+.divshot-cache/
+divshot.json

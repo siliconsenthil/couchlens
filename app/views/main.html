@@ -1,3 +1,29 @@
+<div class="row  text-right">
+  <button type="button" class="btn btn-success" ng-click="fetch()">
+    <span class="glyphicon glyphicon-cloud-download"></span>
+    Fetch
+  </button>
+</div>
+<div class="alert alert-warning" role="alert" ng-if="showWarning">
+  <div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+    Could not connect to your local CouchDB.
+  </div>
+  <ul>
+    <li> Make sure it is running.</li>
+    <li> Enable CORS by adding
+  <pre>
+    [httpd]
+    enable_cors = true
+
+    [cors]
+    origins = http://couchlens.divshot.io
+  </pre>
+
+      to <code>local.ini</code> config of CouchDB. (If you've brew installed, it's at <code>/usr/local/etc/couchdb/local.ini</code>)
+    </li>
+  </ul>
+</div>
 <tabset class="clearfix" justified="true">
   <tab heading="{{docType}}" ng-repeat="docType in docTypes">
     <div>
