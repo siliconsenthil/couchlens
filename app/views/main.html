@@ -1,5 +1,7 @@
-<div class="text-center">
-  <button type="button" class="fetch btn btn-success" ng-click="fetch()">
+<div class="db-selector" ng-hide="showWarning">
+  <select ng-model="currentDb" ng-options="db for db in allDbs" ng-change="fetch()" class="text-center input-lg">
+  </select>
+  <button type="button" class="fetch btn btn-success form-control input-lg" ng-click="fetch()">
     <span class="glyphicon glyphicon-cloud-download"></span>
     Fetch
   </button>
