@@ -34,7 +34,7 @@ angular.module('lensApp')
         $scope.docTypes = _.without(Object.keys($scope.docsByType), "undefined");
         $scope.docTypeAttrs = _.reduce($scope.docTypes, function(r, type){r[type] = _.chain($scope.docsByType[type]).map(function(a){
             return Object.keys(a)}
-        ).flatten().uniq().without("_rev", "docType").value(); return r;}, {});
+        ).flatten().uniq().without("_rev", "docType", "createdAt", "updatedAt").push("createdAt", "updatedAt").value(); return r;}, {});
       }, errorFn);
     };
   });
