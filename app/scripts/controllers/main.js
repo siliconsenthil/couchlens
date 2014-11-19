@@ -16,6 +16,7 @@ angular.module('lensApp')
     ];
 
     $scope.fetch = function(){
+      $scope.showWarning = false;
       $resource('http://localhost:5984/workflow_service_docstore_dev/_all_docs?include_docs=true').get(function(a){
         $scope.docsByType = _.chain(a.rows).map('doc').groupBy('docType').value();
         $scope.docTypes = _.without(Object.keys($scope.docsByType), "undefined");

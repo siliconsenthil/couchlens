@@ -1,5 +1,5 @@
-<div class="row  text-right">
-  <button type="button" class="btn btn-success" ng-click="fetch()">
+<div class="text-center">
+  <button type="button" class="fetch btn btn-success" ng-click="fetch()">
     <span class="glyphicon glyphicon-cloud-download"></span>
     Fetch
   </button>
@@ -24,7 +24,7 @@
     </li>
   </ul>
 </div>
-<tabset class="clearfix" justified="true">
+<tabset class="clearfix" justified="true" ng-hide="showWarning">
   <tab heading="{{docType}}" ng-repeat="docType in docTypes">
     <div>
       <h3>{{docType}}</h3>
