@@ -6,6 +6,20 @@
     Fetch
   </button>
 </div>
+<div class="show-all">
+  <button type="button" class="show-btn btn btn-success form-control input-lg" ng-click="resetDocumentSelection()">
+    <span class="glyphicon glyphicon-refresh"></span>
+    Clear Filter
+  </button>
+</div>
+<div class="document-selector" ng-hide="showWarning">
+  <input class="text-center input-lg" ng-model="docId" type="text" placeholder="Search by Doc ID" />
+  <i class="fetch-doc glyphicon glyphicon-circle-arrow-right" ng-click="fetchByDocId()"></i>
+</div>
+<div class="clear"></div>
+<div class="error" ng-show="error">
+  <span class="warning glyphicon glyphicon-warning-sign"></span> <span class="error-msg">No Matching Documents found!</span>
+</div>
 <div class="alert alert-warning" role="alert" ng-if="showWarning">
   <div class="alert alert-danger" role="alert">
     <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
@@ -26,8 +40,9 @@
     </li>
   </ul>
 </div>
+<br/> <br/>
 <tabset class="clearfix" justified="true" ng-hide="showWarning">
-  <tab heading="{{docType}}" ng-repeat="docType in docTypes">
+  <tab heading="{{docType}}" ng-repeat="docType in getDocTypes()">
     <div>
       <h3>{{docType}}</h3>
       <table class="table">
@@ -36,9 +51,14 @@
             {{attrName}}
           </th>
         </tr>
-        <tr ng-repeat="doc in docsByType[docType]">
+        <tr ng-show="noDocumentSelected" ng-repeat="doc in docsByType[docType]">
           <td ng-repeat="attrName in docTypeAttrs[docType]">
             {{doc[attrName]}}
+          </td>
+        </tr>
+        <tr ng-hide="noDocumentSelected">
+          <td ng-repeat="attrName in docTypeAttrs[docType]">
+            {{document[attrName]}}
           </td>
         </tr>
       </table>
